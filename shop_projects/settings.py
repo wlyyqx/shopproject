@@ -69,7 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'userapp.mycontext.getUserinfo'
+                'userapp.mycontext.getUserinfo'  #配置全局上下文
             ],
         },
     },

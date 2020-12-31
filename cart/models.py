@@ -13,7 +13,7 @@ class CartItem(models.Model):
     user = models.ForeignKey(UserInfo,on_delete=models.CASCADE)
 
     class Meta:
-        unique_together = ['goodsid','colorid','sizeid']
+        unique_together = ['goodsid','colorid','sizeid']  #组合唯一
 
     def getGoods(self):
         return Goods.objects.get(id=self.goodsid)

@@ -22,11 +22,7 @@ class RegisterViews(View):
             return HttpResponseRedirect('/user/center/')
 
         return HttpResponseRedirect('/user/register/')
-
-
         #插入数据库
-
-
 class CheckUnameViews(View):
     def get(self,request):
         #获取请求参数
@@ -53,7 +49,7 @@ class LogoutViews(View):
     def post(self,request):
         #删除session中的数据
         if "user" in request.session:
-            del request.session['user']
+            del request.session['user']    #删除session里的user
         return JsonResponse({'delflag':True})
 
 
@@ -64,10 +60,6 @@ class LoginViews(View):
         red = request.GET.get('redirect','')
         if not red:
             return render(request,'login.html',{'redirect':red})
-
-
-
-
         return render(request,'login.html')
     def post(self,request):
         uname=request.POST.get('uname','')
@@ -75,7 +67,7 @@ class LoginViews(View):
         userList = UserInfo.objects.filter(uname=uname,pwd=pwd)
 
         if userList:
-            request.session['user'] = userList[0]
+            request.session['user'] = userList[0]   #把uname存进session
             red = request.POST.get('redirect','')
             if  red=='cart':
                 #将session的购物项移动到数据库

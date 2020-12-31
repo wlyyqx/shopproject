@@ -37,6 +37,12 @@ class IndexViews(View):
         return render(request, 'index.html',
                       {'cates': cates, 'goodslist': page_list, 'cid': cid, 'pagelist': pagelist, 'currentNom': num})
 
+# 思考1：最终需要获取的推荐商品  goodsObjList=[]
+# 思考2: get方法只能获取到每次访客goodsid   goodsIdList=[]
+# 思考3：将每次访问的商品编号保存下来。将它保存到cookie中。
+# 思考4：考虑推荐商品展示的先后顺序
+
+
 
 # 猜你喜欢,装饰器
 def recommend_view(func):

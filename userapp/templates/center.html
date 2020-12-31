@@ -67,15 +67,16 @@
     <script>
 
         $('.logout').click(function () {
-
             $.ajax({
                 type: 'post',
                 url: '/user/logout/',
                 data: 'csrfmiddlewaretoken=' + $('input[name="csrfmiddlewaretoken"]').val(),
                 success: function (data) {
 
-                    if (data.delflag)
-                    window.location.href = '/user/login/'
+                    if (data.delflag){
+                        window.location.href = '/user/login/'  //重定向
+                    }
+
                 }
             })
         })
